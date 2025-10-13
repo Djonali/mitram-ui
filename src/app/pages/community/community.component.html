@@ -1,0 +1,78 @@
+﻿<div class="p-6 pb-24 space-y-6">
+  <div class="flex items-center justify-between">
+    <div>
+      <h1 class="text-2xl text-slate-800">Community</h1>
+      <p class="text-slate-600">Connect with peers on similar journeys</p>
+    </div>
+    <button class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-3 py-1 rounded" (click)="showNewPost = !showNewPost">+ Post</button>
+  </div>
+  <div class="flex gap-2">
+    <div class="flex-1 relative">
+      <input placeholder="Search groups or posts..." class="pl-10 w-full border rounded px-3 py-2" />
+      <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">🔎</span>
+    </div>
+    <button class="text-sm px-3 py-1 border rounded">Filter</button>
+  </div>
+  <div *ngIf="showNewPost" class="p-4 border rounded space-y-4">
+    <h3 class="text-slate-800">Share with the community</h3>
+    <textarea class="w-full border rounded p-2" placeholder="What's on your mind?"></textarea>
+    <div class="flex gap-2">
+      <button class="text-sm px-3 py-1 border rounded">Post</button>
+      <button class="text-sm px-3 py-1 border rounded" (click)="showNewPost=false">Cancel</button>
+    </div>
+  </div>
+  <div class="flex border-b border-slate-200">
+    <button (click)="activeView='groups'" [class]="'py-2 px-4 border-b-2 transition-colors ' + (activeView==='groups' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-600')">Support Groups</button>
+    <button (click)="activeView='posts'" [class]="'py-2 px-4 border-b-2 transition-colors ' + (activeView==='posts' ? 'border-blue-600 text-blue-600' : 'border-transparent text-slate-600')">Recent Posts</button>
+  </div>
+  <div *ngIf="activeView==='groups'" class="space-y-4">
+    <div class="border rounded overflow-hidden">
+      <div class="flex">
+        <img src="https://images.unsplash.com/photo-1620442771341-4e157b3b6cdf?q=80&w=1080" alt="Anxiety Support" class="w-20 h-20 object-cover" />
+        <div class="flex-1 p-4">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="text-slate-800">Anxiety Support</h3>
+            <button class="text-sm px-3 py-1 border rounded">Join</button>
+          </div>
+          <p class="text-sm text-slate-600 mb-3">A safe space to share experiences and coping strategies for anxiety</p>
+          <div class="flex items-center gap-4 text-xs text-slate-500 mb-2">
+            <span>248 members</span>
+            <span>156 posts</span>
+          </div>
+          <div class="flex gap-1 flex-wrap">
+            <span class="border rounded px-2 py-0.5 text-xs">Anxiety</span>
+            <span class="border rounded px-2 py-0.5 text-xs">Support</span>
+            <span class="border rounded px-2 py-0.5 text-xs">Coping</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="activeView==='posts'" class="space-y-4">
+    <div class="p-4 border rounded">
+      <div class="flex items-start gap-3 mb-3">
+        <div class="w-8 h-8 bg-slate-200 rounded-full flex items-center justify-center">
+          <span class="text-xs text-slate-600">S</span>
+        </div>
+        <div class="flex-1">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="text-sm text-slate-800">Sarah M.</span>
+            <span class="text-xs text-slate-500"></span>
+            <span class="text-xs text-slate-500">2 hours ago</span>
+          </div>
+          <p class="text-sm text-slate-600">Had a really tough day today but used the breathing techniques we discussed. Feeling much better now. Thank you all for the support! </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 pt-3 border-t border-slate-100">
+        <button class="flex items-center gap-1 text-slate-500 hover:text-red-500 transition-colors">
+          <span></span>
+          <span class="text-sm">12</span>
+        </button>
+        <button class="flex items-center gap-1 text-slate-500 hover:text-blue-500 transition-colors">
+          <span></span>
+          <span class="text-sm">5 replies</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

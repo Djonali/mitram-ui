@@ -1,0 +1,55 @@
+﻿<div class="p-6 pb-24 space-y-6">
+  <div class="text-center space-y-2">
+    <h1 class="text-2xl text-slate-800">Welcome to Mitram</h1>
+    <p class="text-slate-600">Your journey to wellness starts here</p>
+    <div class="flex items-center justify-center gap-2">
+      <button class="text-sm px-3 py-1 border rounded" (click)="onAddCommunityClick()">Add Community</button>
+      <button class="text-sm px-3 py-1 border rounded" (click)="toggleLogin()">Login</button>
+    </div>
+  </div>
+  <div class="relative rounded-2xl overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1687180948607-9ba1dd045e10?q=80&w=1080" alt="Peaceful meditation scene"
+      class="w-full h-48 object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end">
+      <div class="p-6 text-white">
+        <h2 class="text-xl">Take a moment for yourself today</h2>
+        <p class="text-sm opacity-90">Your mental wellness matters</p>
+      </div>
+    </div>
+  </div>
+  <div class="p-6 border rounded-lg">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-lg text-slate-800">Today's Mood</h3>
+      <a routerLink="/mood" class="text-sm px-3 py-1 border rounded">Update</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <div class="flex items-center gap-2">
+        <span class="text-red-500"></span>
+        <span class="text-2xl">7/10</span>
+      </div>
+      <div class="flex items-center gap-1 text-green-600">
+        <span></span>
+        <span class="text-sm">+15% this week</span>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h3 class="text-lg text-slate-800 mb-4">Quick Actions</h3>
+    <div class="grid grid-cols-2 gap-4">
+      <a routerLink="/community" class="p-4 border rounded-lg cursor-pointer hover:shadow-md transition-shadow block">
+        <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center mb-3"></div>
+        <h4 class="text-slate-800 mb-1">Join Community</h4>
+        <p class="text-sm text-slate-600">12 active groups</p>
+      </a>
+      <a routerLink="/journal" class="p-4 border rounded-lg cursor-pointer hover:shadow-md transition-shadow block">
+        <div class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center mb-3"></div>
+        <h4 class="text-slate-800 mb-1">Create Journal</h4>
+        <p class="text-sm text-slate-600">Express yourself</p>
+      </a>
+    </div>
+  </div>
+  <app-recent-activity class="mt-6 block"></app-recent-activity>
+  <div class="fixed inset-0 bg-black/40 flex items-center justify-center" *ngIf="showLogin">
+    <app-login (close)="toggleLogin()" (success)="onLoginSuccess()"></app-login>
+  </div>
+</div>

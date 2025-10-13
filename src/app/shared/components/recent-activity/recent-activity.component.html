@@ -1,0 +1,35 @@
+<section class="border rounded-2xl bg-white">
+    <div class="px-6 py-4 border-b">
+        <h2 class="text-slate-800 text-lg">Recent Activity</h2>
+    </div>
+    <ul class="divide-y">
+        <li *ngFor="let a of activities" class="px-6 py-4 flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full flex items-center justify-center" [ngClass]="{
+             'bg-purple-100 text-purple-600': a.icon==='journal',
+             'bg-green-100 text-green-600': a.icon==='group',
+             'bg-blue-100 text-blue-600': a.icon==='session'
+           }">
+                <ng-container [ngSwitch]="a.icon">
+                    <svg *ngSwitchCase="'journal'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="currentColor" class="w-4 h-4">
+                        <path
+                            d="M6 4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a1 1 0 0 0 0-2H7a1 1 0 0 1 0-2h10V4Zm3 4h6a1 1 0 0 1 0 2H9a1 1 0 0 1 0-2Zm0 4h6a1 1 0 0 1 0 2H9a1 1 0 0 1 0-2Z" />
+                    </svg>
+                    <svg *ngSwitchCase="'group'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="currentColor" class="w-4 h-4">
+                        <path
+                            d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Zm0 2c-4.418 0-8 2.015-8 4.5V21h16v-2.5C20 16.015 16.418 14 12 14Z" />
+                    </svg>
+                    <svg *ngSwitchCase="'session'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        fill="currentColor" class="w-4 h-4">
+                        <path d="M7 3a2 2 0 0 0-2 2v14l7-3 7 3V5a2 2 0 0 0-2-2Z" />
+                    </svg>
+                </ng-container>
+            </div>
+            <div class="flex-1 min-w-0">
+                <div class="text-slate-800 text-sm">{{ a.text }}</div>
+                <div class="text-slate-500 text-xs mt-0.5">{{ a.timeAgo }}</div>
+            </div>
+        </li>
+    </ul>
+</section>
