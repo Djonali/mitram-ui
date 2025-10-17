@@ -1,9 +1,10 @@
 ﻿<div class="p-6 pb-24 space-y-6">
   <div class="text-center space-y-2">
     <h1 class="text-2xl text-slate-800">Welcome to Mitram</h1>
-    <p class="text-slate-600">Your journey to wellness starts here</p>
+    <p class="text-slate-600">Your journey to wellness starts here : One</p>
     <div class="flex items-center justify-center gap-2">
       <button class="text-sm px-3 py-1 border rounded" (click)="onAddCommunityClick()">Add Community</button>
+      <button class="text-sm px-3 py-1 border rounded" (click)="toggleRegister()">Register</button>
       <button class="text-sm px-3 py-1 border rounded" (click)="toggleLogin()">Login</button>
     </div>
   </div>
@@ -49,7 +50,10 @@
     </div>
   </div>
   <app-recent-activity class="mt-6 block"></app-recent-activity>
+  <div class="fixed inset-0 bg-black/40 flex items-center justify-center" *ngIf="showRegister">
+    <app-register (close)="toggleRegister()" (success)="onRegisterSuccess()"></app-register>
+  </div>
   <div class="fixed inset-0 bg-black/40 flex items-center justify-center" *ngIf="showLogin">
     <app-login (close)="toggleLogin()" (success)="onLoginSuccess()"></app-login>
-  </div>
+   </div>
 </div>

@@ -5,16 +5,18 @@ import { RouterLink } from '@angular/router';
 import { RecentActivityComponent } from '../../shared/components/recent-activity/recent-activity.component';
 import { LoginComponent } from '../../shared/components/login/login.component';
 import { API_URL } from '../../../environment';
+import { RegisterComponent } from '../../shared/components/register/register.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterLink, RecentActivityComponent, LoginComponent],
+  imports: [CommonModule, RouterLink, RecentActivityComponent, LoginComponent, RegisterComponent],
   templateUrl: './dashboard.component.html',
   styles: []
 })
 export class DashboardComponent {
   count = 0;
+  showRegister: boolean = false;
   constructor(private http: HttpClient) { }
   showLogin = false;
 
@@ -47,6 +49,14 @@ export class DashboardComponent {
   }
 
   onLoginSuccess(): void {
+    console.log('User registered and logged in');
+  }
+
+  toggleRegister(): void {
+    this.showRegister = !this.showRegister;
+  }
+
+  onRegisterSuccess(): void {
     console.log('User registered and logged in');
   }
 }

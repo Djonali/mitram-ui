@@ -5,13 +5,13 @@ import { HttpClient } from '@angular/common/http';
 import { API_URL } from '../../../../environment';
 
 @Component({
-    selector: 'app-login',
+    selector: 'app-register',
     standalone: true,
     imports: [CommonModule, ReactiveFormsModule],
-    templateUrl: './login.component.html',
-    styleUrls: ['./login.component.scss']
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.scss']
 })
-export class LoginComponent {
+export class RegisterComponent {
     @Output() close = new EventEmitter<void>();
     @Output() success = new EventEmitter<void>();
 
@@ -20,6 +20,7 @@ export class LoginComponent {
 
     form = this.fb.group({
         name: ['', [Validators.required]],
+        email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(6)]]
     });
 
@@ -32,8 +33,11 @@ export class LoginComponent {
         }
         this.isSubmitting = true;
         this.errorMessage = null;
+        let url = `${API_URL}/api/auth/register`;
+        console.log("url", url);
 
-        this.http.post<any>(`${API_URL}/api/auth/login`, this.form.value).subscribe({
+
+        this.http.post<any>(url, this.form.value).subscribe({
             next: (res) => {
                 if (res?.token) {
                     localStorage.setItem('token', res.token);
@@ -43,7 +47,8 @@ export class LoginComponent {
                 this.isSubmitting = false;
             },
             error: (err) => {
-                this.errorMessage = err?.error?.message || 'Login failed';
+                this.errorMessage = err?.error?.message || 'Registration failed';
+                console.log("error", err);
                 this.isSubmitting = false;
             }
         });
