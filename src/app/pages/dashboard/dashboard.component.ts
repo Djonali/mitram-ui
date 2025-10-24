@@ -6,11 +6,12 @@ import { RecentActivityComponent } from '../../shared/components/recent-activity
 import { LoginComponent } from '../../shared/components/login/login.component';
 import { API_URL } from '../../../environment';
 import { RegisterComponent } from '../../shared/components/register/register.component';
+import {WorkInProgressOverlayComponent} from '../../shared/components/work-overlay/work-in-progress-overlay.component'
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterLink, RecentActivityComponent, LoginComponent, RegisterComponent],
+  imports: [CommonModule, RouterLink, RecentActivityComponent, LoginComponent, RegisterComponent, WorkInProgressOverlayComponent],
   templateUrl: './dashboard.component.html',
   styles: []
 })

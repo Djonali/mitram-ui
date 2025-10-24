@@ -1,0 +1,137 @@
+/*
+  Color tokens scaffold
+  - CSS custom properties for runtime theming
+  - SCSS variables and maps for compile-time use
+  Update values when the final palette from Figma is confirmed.
+*/
+
+:root {
+  /* Brand */
+  --color-brand-50: #f5f8ff;
+  --color-brand-100: #e6efff;
+  --color-brand-200: #cddfff;
+  --color-brand-300: #9fc0ff;
+  --color-brand-400: #6f9fff;
+  --color-brand-500: #3d7dff; /* primary */
+  --color-brand-600: #2f61d6;
+  --color-brand-700: #244cac;
+  --color-brand-800: #1b3a82;
+  --color-brand-900: #142a5e;
+
+  /* Neutrals */
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+
+  /* Support */
+  --color-success: #16a34a;
+  --color-warning: #f59e0b;
+  --color-danger: #dc2626;
+  --color-info: #0284c7;
+  --main-color: #213721;
+
+  --green-1000: #101c10;
+  --green-800: #3c5e39;
+  --green-600: #617c5f;
+  --green-700: #496839;
+  --green-400: #899f87;
+  --green-300: #c8d8c0;
+  --green-200: #c7d1c6;
+  --green-100: #d0e0cf;
+  --green-80: #e4ece0;
+  --green-50: #e8f0e8;
+
+  //mitram color theme
+  --deep-teal: #022c31;
+  --dark-cyan: #01464f;
+  --muted-blue-gray:#305d62;
+  --cool-gray:#6f797c;
+  --soft-aqua:#adc2c4;
+  --coral-pink:#f47e7e ;
+}
+
+/* Vibrant theme mapping */
+:root[data-theme="vibrant"],
+.theme-vibrant {
+  --main-color: #213721;
+
+  --color-brand-900: var(--green-1000);
+  --color-brand-800: var(--green-800);
+  --color-brand-700: var(--green-700);
+  --color-brand-600: var(--green-600);
+  --color-brand-500: var(--main-color);
+  --color-brand-400: var(--green-400);
+  --color-brand-300: var(--green-300);
+  --color-brand-200: var(--green-200);
+  --color-brand-100: var(--green-100);
+  --color-brand-50: var(--green-50);
+}
+
+/* SCSS variables (mirror CSS vars for use in components) */
+$brand-50: var(--color-brand-50);
+$brand-100: var(--color-brand-100);
+$brand-200: var(--color-brand-200);
+$brand-300: var(--color-brand-300);
+$brand-400: var(--color-brand-400);
+$brand-500: var(--color-brand-500);
+$brand-600: var(--color-brand-600);
+$brand-700: var(--color-brand-700);
+$brand-800: var(--color-brand-800);
+$brand-900: var(--color-brand-900);
+
+$slate-50: var(--color-slate-50);
+$slate-100: var(--color-slate-100);
+$slate-200: var(--color-slate-200);
+$slate-300: var(--color-slate-300);
+$slate-400: var(--color-slate-400);
+$slate-500: var(--color-slate-500);
+$slate-600: var(--color-slate-600);
+$slate-700: var(--color-slate-700);
+$slate-800: var(--color-slate-800);
+$slate-900: var(--color-slate-900);
+
+$support-success: var(--color-success);
+$support-warning: var(--color-warning);
+$support-danger: var(--color-danger);
+$support-info: var(--color-info);
+
+/* Maps for utilities/mixins */
+$brand-scale: (
+  50: $brand-50,
+  100: $brand-100,
+  200: $brand-200,
+  300: $brand-300,
+  400: $brand-400,
+  500: $brand-500,
+  600: $brand-600,
+  700: $brand-700,
+  800: $brand-800,
+  900: $brand-900,
+);
+
+$slate-scale: (
+  50: $slate-50,
+  100: $slate-100,
+  200: $slate-200,
+  300: $slate-300,
+  400: $slate-400,
+  500: $slate-500,
+  600: $slate-600,
+  700: $slate-700,
+  800: $slate-800,
+  900: $slate-900,
+);
+
+/* Example utility mixin */
+@mixin apply-brand($shade) {
+  color: map-get($brand-scale, $shade);
+}
+
+

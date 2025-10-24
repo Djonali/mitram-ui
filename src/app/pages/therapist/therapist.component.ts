@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import {WorkInProgressOverlayComponent} from '../../shared/components/work-overlay/work-in-progress-overlay.component'
 
 @Component({
   selector: 'app-therapist',
   standalone: true,
-  imports: [],
+  imports: [WorkInProgressOverlayComponent],
   templateUrl: './therapist.component.html',
   styles: ``
 })
