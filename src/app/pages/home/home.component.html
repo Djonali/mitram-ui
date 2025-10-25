@@ -7,8 +7,8 @@
             <p class="mt-4">A safe, guided space to connect, share, and grow with people who
                 understand you.</p>
             <div class="mt-6 flex gap-3">
-                <a routerLink="/register"
-                    class="inline-flex items-center px-4 py-2 rounded-lg bg-slate-900 text-white">Join the Waitlist</a>
+                <button (click)="openWaitlistModal()"
+                    class="inline-flex items-center px-4 py-2 rounded-lg bg-slate-900 text-white hover:bg-slate-800 transition-colors">Join the Waitlist</button>
                 <button (click)="openVideo()"
                     class="inline-flex items-center px-4 py-2 rounded-lg border border-slate-300 text-slate-700 bg-white">Watch
                     1‑min Video</button>
@@ -124,6 +124,13 @@
         </div>
     </div>
 </div>
+
+<!-- Waitlist Modal -->
+<app-waitlist-modal 
+    *ngIf="showWaitlistModal"
+    (closeModal)="closeWaitlistModal()"
+    (submitForm)="onWaitlistSubmit($event)">
+</app-waitlist-modal>
 <section class="py-12 md:py-16 text-white section-dark-green">
     <div class="max-w-6xl mx-auto px-6">
         <div>
@@ -179,8 +186,8 @@
   <!-- Call to Action -->
   <section id="waitlist" class="py-16 text-white text-center bg-red-400">
     <h3 class="text-3xl font-bold mb-4">Ready to Begin Your Healing Journey?</h3>
-    <p class="mb-6 text-slate-900">Join Mitram’s waitlist today and be the first to experience mindful growth and community support.</p>
-    <a href="#" class="bg-white text-indigo-700 px-6 py-3 rounded-full font-semibold hover:bg-indigo-50">Join Waitlist</a>
+    <p class="mb-6 text-slate-900">Join Mitram's waitlist today and be the first to experience mindful growth and community support.</p>
+    <button (click)="openWaitlistModal()" class="bg-white text-indigo-700 px-6 py-3 rounded-full font-semibold hover:bg-indigo-50 transition-colors">Join Waitlist</button>
   </section>
 
 

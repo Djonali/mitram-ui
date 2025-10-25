@@ -1,63 +1,62 @@
+// Custom CSS variables for dark green theme colors
+:root {
+  --deep-teal: #022c31;
+  --dark-cyan: #01464f;
+  --muted-blue-gray: #305d62;
+  --cool-gray: #6f797c;
+  --soft-aqua: #adc2c4;
+  --coral-pink: #f47e7e;
+}
+
+// Minimal custom styles - most styling handled by Tailwind CSS
 .overlay {
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.2); // opacity 0.6
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    backdrop-filter: blur(2px);
-    color: #fff;
-    text-align: center;
+  // Custom backdrop blur for better browser support
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+// Custom focus styles for better accessibility
+input:focus {
+  box-shadow: 0 0 0 3px rgba(173, 194, 196, 0.2);
+}
+
+// Custom gradient for submit button
+.submit-gradient {
+  background: linear-gradient(135deg, var(--coral-pink), #e06b6b);
+}
+
+.submit-gradient:hover {
+  background: linear-gradient(135deg, #e06b6b, var(--coral-pink));
+}
+
+// Custom shadow for submit button
+.submit-shadow {
+  box-shadow: 0 4px 15px rgba(244, 126, 126, 0.3);
+}
+
+.submit-shadow:hover {
+  box-shadow: 0 6px 20px rgba(244, 126, 126, 0.4);
+}
+
+// Responsive text sizing for better mobile experience
+@media (max-width: 640px) {
+  .overlay {
     padding: 1rem;
   }
-  
-  .message-box {
-    background: rgba(23, 13, 152, 0.8);
-    border-radius: 16px;
-    padding: 2rem 3rem;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-  
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-  
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-  
-    .email-form {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-  
-      input {
-        padding: 0.6rem 1rem;
-        border: none;
-        border-radius: 8px;
-        width: 70%;
-        max-width: 300px;
-      }
-  
-      button {
-        background: #007bff;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        padding: 0.6rem 1.2rem;
-        cursor: pointer;
-        transition: background 0.2s;
-  
-        &:hover {
-          background: #0056b3;
-        }
-      }
-    }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .overlay {
+    background-color: rgba(2, 44, 49, 0.95);
   }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
   

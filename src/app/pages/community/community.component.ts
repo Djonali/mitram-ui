@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {WorkInProgressOverlayComponent} from '../../shared/components/work-overlay/work-in-progress-overlay.component'
+import {WorkInProgressOverlayComponent} from '../../shared/components/work-overlay/work-in-progress-overlay.component';
+
 
 @Component({
   selector: 'app-community',
@@ -12,4 +13,8 @@ import {WorkInProgressOverlayComponent} from '../../shared/components/work-overl
 export class CommunityComponent {
   showNewPost = false;
   activeView: 'groups' | 'posts' = 'groups';
+ constructor() {}
+
+
+ 
 }

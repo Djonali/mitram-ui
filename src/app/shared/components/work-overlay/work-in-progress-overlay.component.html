@@ -1,20 +1,85 @@
-<div class="overlay">
-    <div class="message-box">
-        <h2>🚧 Work in progress</h2>
-        <p>
+<div class="fixed inset-0 bg-deep-teal/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div class="bg-dark-cyan border border-muted-blue-gray rounded-2xl p-6 sm:p-8 lg:p-10 w-full max-w-md sm:max-w-lg lg:max-w-xl shadow-2xl">
+        <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold text-soft-aqua mb-4 sm:mb-6 text-center">
+            🚧 Work in progress
+        </h2>
+        <p class="text-sm sm:text-base lg:text-lg text-cool-gray mb-6 sm:mb-8 text-center leading-relaxed">
             Need your help to reach there.<br />
-            Please drop your email to connect and click
-            <strong>"Join the Waitlist"</strong>.
+            Please fill out the form below to join our waitlist.
         </p>
+        
+        <!-- Waitlist Form -->
+        <form (ngSubmit)="onSubmit()" class="space-y-4 sm:space-y-5 lg:space-y-6">
+            <!-- Name Field -->
+            <div class="space-y-2">
+                <label for="name" class="block text-sm sm:text-base font-semibold text-soft-aqua">
+                    Name <span class="text-coral-pink">*</span>
+                </label>
+                <input
+                    type="text"
+                    id="name"
+                    [(ngModel)]="formData.name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    [class]="'w-full px-3 sm:px-4 py-2 sm:py-3 bg-muted-blue-gray text-soft-aqua border-2 rounded-xl text-sm sm:text-base transition-all duration-300 focus:outline-none focus:border-soft-aqua focus:bg-dark-cyan focus:ring-2 focus:ring-soft-aqua/20' + (errors.name ? ' border-coral-pink ring-2 ring-coral-pink/20' : ' border-cool-gray')"
+                />
+                <div *ngIf="errors.name" class="text-coral-pink text-xs sm:text-sm font-medium">{{ errors.name }}</div>
+            </div>
 
-        <form (submit)="onSubmit()" class="email-form">
-            <input type="email" placeholder="Enter your email" name="email" required />
-            <button class=" rounded-lg  text-slate-900 bg-red-400 w-[150px] h-[40px]">Join Waitlist</button>
+            <!-- Email Field -->
+            <div class="space-y-2">
+                <label for="email" class="block text-sm sm:text-base font-semibold text-soft-aqua">
+                    Email <span class="text-coral-pink">*</span>
+                </label>
+                <input
+                    type="email"
+                    id="email"
+                    [(ngModel)]="formData.email"
+                    name="email"
+                    placeholder="Enter your email address"
+                    [class]="'w-full px-3 sm:px-4 py-2 sm:py-3 bg-muted-blue-gray text-soft-aqua border-2 rounded-xl text-sm sm:text-base transition-all duration-300 focus:outline-none focus:border-soft-aqua focus:bg-dark-cyan focus:ring-2 focus:ring-soft-aqua/20' + (errors.email ? ' border-coral-pink ring-2 ring-coral-pink/20' : ' border-cool-gray')"
+                />
+                <div *ngIf="errors.email" class="text-coral-pink text-xs sm:text-sm font-medium">{{ errors.email }}</div>
+            </div>
+
+            <!-- Phone Number Field (Optional) -->
+            <div class="space-y-2">
+                <label for="phone" class="block text-sm sm:text-base font-semibold text-soft-aqua">
+                    Phone Number (Optional)
+                </label>
+                <input
+                    type="tel"
+                    id="phone"
+                    [(ngModel)]="formData.phone"
+                    name="phone"
+                    placeholder="Enter your phone number"
+                    class="w-full px-3 sm:px-4 py-2 sm:py-3 bg-muted-blue-gray text-soft-aqua border-2 border-cool-gray rounded-xl text-sm sm:text-base transition-all duration-300 focus:outline-none focus:border-soft-aqua focus:bg-dark-cyan focus:ring-2 focus:ring-soft-aqua/20"
+                />
+            </div>
+
+            <!-- Submit Button -->
+            <button 
+                type="submit"
+                class="w-full bg-gradient-to-r from-coral-pink to-red-400 text-deep-teal font-bold py-3 sm:py-4 px-6 rounded-xl text-sm sm:text-base lg:text-lg transition-all duration-300 hover:from-red-400 hover:to-coral-pink hover:-translate-y-1 hover:shadow-lg hover:shadow-coral-pink/25 active:translate-y-0 active:shadow-md"
+            >
+                Join Waitlist
+            </button>
         </form>
-        <div class="flex gap-3 mt-3">
-            <a routerLink="/home" class="inline-flex items-center px-4 py-2 rounded-lg bg-slate-900 text-white mt-3">Go
-                Home</a>
-            <a class="inline-flex items-center px-4 mt-3 h-[40px] rounded-lg bg-green-500 text-white" href="https://docs.google.com/forms/d/e/1FAIpQLSd8GjWpa56T-ozml2f4o0viI1F_yTjTUcLJ-VlbIqMbzh9h6Q/viewform" target="_blank">Access Survey</a>
+       
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-8">
+            <a 
+                routerLink="/home" 
+                class="flex-1 bg-deep-teal text-soft-aqua border-2 border-muted-blue-gray py-3 px-4 sm:px-6 rounded-xl font-semibold text-center text-sm sm:text-base transition-all duration-300 hover:bg-muted-blue-gray hover:border-soft-aqua hover:-translate-y-1"
+            >
+                Go Home
+            </a>
+            <a 
+                class="flex-1 bg-soft-aqua text-deep-teal border-2 border-soft-aqua py-3 px-4 sm:px-6 rounded-xl font-semibold text-center text-sm sm:text-base transition-all duration-300 hover:bg-cool-gray hover:text-soft-aqua hover:-translate-y-1"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSd8GjWpa56T-ozml2f4o0viI1F_yTjTUcLJ-VlbIqMbzh9h6Q/viewform" 
+                target="_blank"
+            >
+                Access Survey
+            </a>
         </div>
 
     </div>

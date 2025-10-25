@@ -6,7 +6,8 @@ import { RecentActivityComponent } from '../../shared/components/recent-activity
 import { LoginComponent } from '../../shared/components/login/login.component';
 import { API_URL } from '../../../environment';
 import { RegisterComponent } from '../../shared/components/register/register.component';
-import {WorkInProgressOverlayComponent} from '../../shared/components/work-overlay/work-in-progress-overlay.component'
+import {WorkInProgressOverlayComponent} from '../../shared/components/work-overlay/work-in-progress-overlay.component';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -18,6 +19,7 @@ import {WorkInProgressOverlayComponent} from '../../shared/components/work-overl
 export class DashboardComponent {
   count = 0;
   showRegister: boolean = false;
+  showWaitlistModal = false;
   constructor(private http: HttpClient) { }
   showLogin = false;
 
@@ -60,4 +62,7 @@ export class DashboardComponent {
   onRegisterSuccess(): void {
     console.log('User registered and logged in');
   }
+
+ 
+
 }
