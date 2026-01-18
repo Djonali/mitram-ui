@@ -1,0 +1,248 @@
+<div class="mx-auto flex max-w-7xl flex-col gap-8 animate-in">
+  <!-- Breadcrumb Navigation -->
+  <nav class="flex items-center gap-2 text-sm text-slate-500">
+    <a routerLink="/home" class="hover:text-primary transition-colors cursor-pointer">Home</a>
+    <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+    <span class="font-medium text-slate-800">Therapists</span>
+  </nav>
+
+  <!-- Header Section -->
+  <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+    <div class="space-y-2">
+      <h1 class="text-3xl font-bold text-slate-900">Find a Therapist</h1>
+      <p class="text-slate-600">Connect with qualified professionals for your mental wellness journey.</p>
+    </div>
+    <div class="flex flex-col gap-4 md:flex-row md:items-center">
+      <div class="search-box">
+        <span class="material-symbols-outlined text-slate-400">search</span>
+        <input 
+          class="search-input" 
+          placeholder="Search by name or keyword..." 
+          type="text"
+          [(ngModel)]="searchQuery"
+        />
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-sm text-slate-500">Sort by:</span>
+        <select class="sort-select" [(ngModel)]="sortBy">
+          <option>Recommended</option>
+          <option>Rating</option>
+          <option>Price: Low to High</option>
+          <option>Price: High to Low</option>
+          <option>Availability</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 gap-8 lg:grid-cols-4">
+    <!-- Filters Sidebar -->
+    <aside class="flex flex-col gap-6 lg:col-span-1">
+      <div class="filters-card">
+        <div class="filters-header">
+          <h3 class="font-bold text-slate-800 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">tune</span> Filters
+          </h3>
+          <button (click)="resetFilters()" class="text-xs font-medium text-primary hover:text-primary-hover">
+            Reset All
+          </button>
+        </div>
+
+        <!-- Specialty Filter -->
+        <div class="filter-section">
+          <h4 class="filter-label">Specialty</h4>
+          <div class="space-y-2">
+            @for (specialty of specialties.slice(0, showMoreSpecialties ? specialties.length : 4); track specialty) {
+              <label class="filter-radio-item">
+                <input 
+                  type="radio" 
+                  name="specialty" 
+                  [value]="specialty"
+                  [checked]="selectedSpecialty === specialty"
+                  (change)="selectedSpecialty = specialty"
+                  class="radio-custom"
+                />
+                <span class="text-sm text-slate-700">{{ specialty }}</span>
+              </label>
+            }
+            @if (!showMoreSpecialties && specialties.length > 4) {
+              <button 
+                (click)="showMoreSpecialties = true"
+                class="text-xs font-medium text-primary hover:text-primary-hover flex items-center gap-1">
+                Show more <span class="material-symbols-outlined text-[16px]">expand_more</span>
+              </button>
+            }
+          </div>
+        </div>
+
+        <!-- Language Filter -->
+        <div class="filter-section">
+          <h4 class="filter-label">Language</h4>
+          <select class="filter-select" [(ngModel)]="selectedLanguage">
+            @for (language of languages; track language) {
+              <option [value]="language">{{ language }}</option>
+            }
+          </select>
+        </div>
+
+        <!-- Availability Filter -->
+        <div class="filter-section">
+          <h4 class="filter-label">Availability</h4>
+          <div class="space-y-2">
+            @for (option of availabilityOptions; track option) {
+              <label class="filter-radio-item">
+                <input 
+                  type="radio" 
+                  name="availability" 
+                  [value]="option"
+                  [checked]="selectedAvailability === option"
+                  (change)="selectedAvailability = option"
+                  class="radio-custom"
+                />
+                <span class="text-sm text-slate-700">{{ option }}</span>
+              </label>
+            }
+          </div>
+        </div>
+
+        <!-- Price Filter -->
+        <div class="filter-section">
+          <h4 class="filter-label">Price per session</h4>
+          <div class="flex gap-3">
+            <div class="flex-1">
+              <label class="text-xs text-slate-500 mb-1 block">Min</label>
+              <input 
+                type="number" 
+                class="price-input" 
+                [(ngModel)]="minPrice"
+                placeholder="0"
+              />
+            </div>
+            <div class="flex-1">
+              <label class="text-xs text-slate-500 mb-1 block">Max</label>
+              <input 
+                type="number" 
+                class="price-input" 
+                [(ngModel)]="maxPrice"
+                placeholder="500"
+              />
+            </div>
+          </div>
+        </div>
+
+        <button (click)="applyFilters()" class="btn-apply-filters">
+          Apply Filters
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex flex-col gap-6 lg:col-span-3">
+      <p class="text-sm font-medium text-slate-500">
+        Showing <span class="text-slate-900 font-bold">{{ filteredTherapists.length }}</span> therapists
+      </p>
+
+      <div class="space-y-6">
+        @for (therapist of filteredTherapists; track therapist.id) {
+          <div class="therapist-card">
+            <div class="flex gap-6">
+              <!-- Profile Image -->
+              <div class="therapist-avatar" [style.background-image]="'url(' + therapist.image + ')'"></div>
+
+              <!-- Therapist Info -->
+              <div class="flex-1">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-xl font-bold text-slate-900">{{ therapist.name }}</h3>
+                    <p class="text-sm text-slate-600 mt-1">{{ therapist.title }}</p>
+                  </div>
+                  <button 
+                    (click)="toggleFavorite(therapist)"
+                    class="favorite-btn"
+                    [class.favorited]="therapist.isFavorite">
+                    <span class="material-symbols-outlined text-[20px]">favorite</span>
+                  </button>
+                </div>
+
+                <!-- Availability Tag -->
+                <div class="mb-3">
+                  <span 
+                    class="availability-tag"
+                    [class.available-today]="therapist.availabilityTag === 'available-today'"
+                    [class.next-slot]="therapist.availabilityTag === 'next-slot'"
+                    [class.available-week]="therapist.availabilityTag === 'available-week'">
+                    {{ therapist.availability }}
+                  </span>
+                </div>
+
+                <!-- Rating -->
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="material-symbols-outlined text-yellow-500 text-[18px]">star</span>
+                  <span class="text-sm font-bold text-slate-900">{{ therapist.rating }}</span>
+                  <span class="text-sm text-slate-500">({{ therapist.reviews }} reviews)</span>
+                </div>
+
+                <!-- Specialties -->
+                <div class="flex flex-wrap gap-2 mb-3">
+                  @for (specialty of therapist.specialties; track specialty) {
+                    <span class="specialty-tag">{{ specialty }}</span>
+                  }
+                </div>
+
+                <!-- Description -->
+                <p class="text-sm text-slate-600 mb-4 line-clamp-2">{{ therapist.description }}</p>
+
+                <!-- Details -->
+                <div class="flex items-center gap-6 mb-4 text-sm text-slate-600">
+                  <div class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">language</span>
+                    <span>{{ therapist.languages.join(', ') }}</span>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[16px]">work</span>
+                    <span>{{ therapist.experience }}</span>
+                  </div>
+                </div>
+
+                <!-- Price and Actions -->
+                <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                  <div>
+                    <span class="text-lg font-bold text-slate-900">${{ therapist.price }}</span>
+                    <span class="text-sm text-slate-500"> / {{ therapist.duration }} min</span>
+                  </div>
+                  <div class="flex gap-3">
+                    <button 
+                      (click)="viewProfile(therapist.id)"
+                      class="btn-view-profile">
+                      View Profile
+                    </button>
+                    <button 
+                      (click)="bookSession(therapist.id)"
+                      class="btn-book-session">
+                      Book Session
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="page-nav-btn">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <button class="page-btn active">1</button>
+        <button class="page-btn">2</button>
+        <button class="page-btn">3</button>
+        <span class="px-2 text-slate-500">...</span>
+        <button class="page-btn">8</button>
+        <button class="page-nav-btn">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

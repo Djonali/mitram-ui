@@ -1,0 +1,244 @@
+<div class="mx-auto flex max-w-7xl flex-col gap-8 animate-in">
+  <!-- Breadcrumb Navigation -->
+  <nav class="flex items-center gap-2 text-sm text-slate-500">
+    <a routerLink="/community" class="hover:text-primary transition-colors cursor-pointer">Home</a>
+    <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+    <a routerLink="/community" class="hover:text-primary transition-colors cursor-pointer">Communities</a>
+    <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+    <span class="font-medium text-slate-800">{{ community.name }}</span>
+  </nav>
+
+  <!-- Community Header -->
+  <div class="relative rounded-3xl overflow-hidden">
+    <div class="community-header-image" [style.background-image]="'url(' + community.image + ')'"></div>
+    <div class="community-header-overlay"></div>
+    <div class="community-header-content">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div>
+          <span class="community-category-tag">{{ community.category }}</span>
+          <h1 class="text-4xl font-black text-white mt-4 mb-2">{{ community.name }}</h1>
+          <p class="text-white/90 font-medium max-w-2xl">{{ community.description }}</p>
+          <div class="flex items-center gap-6 mt-4">
+            <div class="flex items-center gap-2 text-white/90">
+              <span class="material-symbols-outlined text-[18px]">group</span>
+              <span class="font-bold">{{ community.members }} members</span>
+            </div>
+            <div class="flex items-center gap-2 text-white/90">
+              <span class="material-symbols-outlined text-[18px]">location_on</span>
+              <span class="font-medium">{{ community.location }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <button 
+            *ngIf="!isMember"
+            (click)="joinCommunity()"
+            class="btn-join-community">
+            <span class="material-symbols-outlined text-[20px]">person_add</span>
+            Join Community
+          </button>
+          <button 
+            *ngIf="isMember"
+            (click)="leaveCommunity()"
+            class="btn-leave-community">
+            <span class="material-symbols-outlined text-[20px]">person_remove</span>
+            Leave Community
+          </button>
+          <button class="btn-share-community">
+            <span class="material-symbols-outlined text-[20px]">share</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabs Navigation -->
+  <div class="border-b border-slate-200">
+    <nav class="flex space-x-8" aria-label="Tabs">
+      <button
+        (click)="setActiveTab('posts')"
+        [class]="activeTab === 'posts' 
+          ? 'tab-active' 
+          : 'tab-inactive'">
+        <span class="material-symbols-outlined text-[18px]">forum</span>
+        Posts
+      </button>
+      <button
+        (click)="setActiveTab('members')"
+        [class]="activeTab === 'members' 
+          ? 'tab-active' 
+          : 'tab-inactive'">
+        <span class="material-symbols-outlined text-[18px]">group</span>
+        Members
+      </button>
+      <button
+        (click)="setActiveTab('about')"
+        [class]="activeTab === 'about' 
+          ? 'tab-active' 
+          : 'tab-inactive'">
+        <span class="material-symbols-outlined text-[18px]">info</span>
+        About
+      </button>
+    </nav>
+  </div>
+
+  <!-- Tab Content -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <!-- Main Content -->
+    <div class="lg:col-span-2 space-y-6">
+      <!-- Posts Tab -->
+      <div *ngIf="activeTab === 'posts'" class="space-y-6">
+        <!-- Create Post -->
+        <div class="create-post-card">
+          <div class="flex gap-4">
+            <div class="user-avatar" style="background-image: url('https://i.pravatar.cc/100?u=current')"></div>
+            <div class="flex-1">
+              <textarea 
+                class="post-input" 
+                placeholder="Share your thoughts with the community..."
+                rows="3"></textarea>
+              <div class="flex items-center justify-between mt-3">
+                <div class="flex gap-2">
+                  <button class="post-action-btn">
+                    <span class="material-symbols-outlined text-[18px]">image</span>
+                  </button>
+                  <button class="post-action-btn">
+                    <span class="material-symbols-outlined text-[18px]">mood</span>
+                  </button>
+                </div>
+                <button class="btn-post-submit">Post</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Posts List -->
+        <div class="space-y-4">
+          <div *ngFor="let post of posts" class="post-card">
+            <div class="flex gap-4">
+              <div class="user-avatar" [style.background-image]="'url(' + post.authorAvatar + ')'"></div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between mb-2">
+                  <div>
+                    <h4 class="font-bold text-slate-900">{{ post.author }}</h4>
+                    <span class="text-xs text-slate-400">{{ post.timestamp }}</span>
+                  </div>
+                  <button class="post-menu-btn">
+                    <span class="material-symbols-outlined text-[18px]">more_vert</span>
+                  </button>
+                </div>
+                <p class="text-sm text-slate-700 leading-relaxed mb-4">{{ post.content }}</p>
+                <div class="flex items-center gap-6 pt-4 border-t border-slate-50">
+                  <button (click)="likePost(post.id)" class="post-interaction-btn">
+                    <span class="material-symbols-outlined text-[18px]">favorite</span>
+                    <span>{{ post.likes }}</span>
+                  </button>
+                  <button class="post-interaction-btn">
+                    <span class="material-symbols-outlined text-[18px]">comment</span>
+                    <span>{{ post.comments }}</span>
+                  </button>
+                  <button class="post-interaction-btn">
+                    <span class="material-symbols-outlined text-[18px]">share</span>
+                    <span>Share</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Members Tab -->
+      <div *ngIf="activeTab === 'members'" class="space-y-4">
+        <div class="members-header">
+          <h3 class="text-lg font-black text-slate-900">All Members ({{ members.length }})</h3>
+          <input type="text" placeholder="Search members..." class="member-search-input">
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div *ngFor="let member of members" class="member-card">
+            <div class="member-avatar" [style.background-image]="'url(' + member.avatar + ')'"></div>
+            <div class="flex-1">
+              <h4 class="font-bold text-slate-900">{{ member.name }}</h4>
+              <span class="member-role">{{ member.role }}</span>
+            </div>
+            <button class="member-action-btn">
+              <span class="material-symbols-outlined text-[18px]">person_add</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Tab -->
+      <div *ngIf="activeTab === 'about'" class="space-y-6">
+        <div class="about-section-card">
+          <h3 class="text-lg font-black text-slate-900 mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-[20px]">description</span>
+            Description
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed">{{ community.fullDescription }}</p>
+        </div>
+
+        <div class="about-section-card">
+          <h3 class="text-lg font-black text-slate-900 mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-[20px]">rule</span>
+            Community Rules
+          </h3>
+          <ul class="space-y-3">
+            <li *ngFor="let rule of community.rules" class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+              <span class="text-sm text-slate-700 font-medium">{{ rule }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="about-section-card">
+          <h3 class="text-lg font-black text-slate-900 mb-4 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-[20px]">info</span>
+            Community Info
+          </h3>
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Created</span>
+              <p class="text-sm font-bold text-slate-900 mt-1">{{ community.createdDate }}</p>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-widest">Language</span>
+              <p class="text-sm font-bold text-slate-900 mt-1">{{ community.language }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="lg:col-span-1 space-y-6">
+      <div class="sidebar-card">
+        <h3 class="text-sm font-black text-slate-800 mb-4 flex items-center gap-2 uppercase tracking-widest">
+          <span class="material-symbols-outlined text-primary text-lg">trending_up</span>
+          Quick Stats
+        </h3>
+        <div class="space-y-4">
+          <div>
+            <span class="text-xs text-slate-500 font-medium">Total Posts</span>
+            <p class="text-2xl font-black text-slate-900 mt-1">1,234</p>
+          </div>
+          <div>
+            <span class="text-xs text-slate-500 font-medium">Active This Week</span>
+            <p class="text-2xl font-black text-slate-900 mt-1">456</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <h3 class="text-sm font-black text-slate-800 mb-4 flex items-center gap-2 uppercase tracking-widest">
+          <span class="material-symbols-outlined text-primary text-lg">verified_user</span>
+          Guidelines
+        </h3>
+        <p class="text-xs text-slate-600 leading-relaxed font-medium mb-4">
+          Please review our community guidelines before posting.
+        </p>
+        <button class="btn-guidelines">Read Guidelines</button>
+      </div>
+    </aside>
+  </div>
+</div>

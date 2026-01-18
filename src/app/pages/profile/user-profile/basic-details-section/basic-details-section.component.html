@@ -1,0 +1,111 @@
+
+<div class="bg-white dark:bg-[#2a1d1d] rounded-xl shadow-sm border border-[#e6dbdb] dark:border-[#3a2d2d] overflow-hidden transition-all duration-200">
+  <div class="px-6 py-4 border-b border-[#e6dbdb] dark:border-[#3a2d2d] flex items-center gap-3">
+    <div class="p-2 rounded-lg bg-primary/10 text-primary">
+      <span class="material-symbols-outlined">person</span>
+    </div>
+    <h3 class="text-[#181111] dark:text-white text-lg font-bold">Basic Details</h3>
+  </div>
+  
+  <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Full Name -->
+    <div class="flex flex-col gap-1">
+      <label class="text-sm font-medium text-[#181111] dark:text-gray-200">Full Name</label>
+      <div class="relative group">
+        <input 
+          class="w-full rounded-lg border border-[#e6dbdb] dark:border-[#4a3d3d] bg-white dark:bg-[#3a2d2d] px-4 py-2.5 text-[#181111] dark:text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" 
+          placeholder="Your Full Name" 
+          type="text" 
+          [ngModel]="profile.fullName"
+          (ngModelChange)="onUpdate({ fullName: $event })"
+        />
+        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-primary/60 group-hover:text-primary transition-colors" title="Private to you">
+          <span class="material-symbols-outlined text-[18px]">lock</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="flex flex-col gap-1">
+      <label class="text-sm font-medium text-[#181111] dark:text-gray-200">Email Address</label>
+      <div class="relative group">
+        <input 
+          class="w-full rounded-lg border border-[#e6dbdb] dark:border-[#4a3d3d] bg-gray-50 dark:bg-[#221010] px-4 py-2.5 text-gray-500 dark:text-gray-400 focus:outline-none cursor-not-allowed" 
+          readonly 
+          type="email" 
+          [ngModel]="profile.email"
+        />
+        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-primary/60" title="Private to you">
+          <span class="material-symbols-outlined text-[18px]">lock</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- DOB -->
+    <div class="flex flex-col gap-1">
+      <label class="text-sm font-medium text-[#181111] dark:text-gray-200">Date of Birth</label>
+      <div class="relative">
+        <input 
+          class="w-full rounded-lg border border-[#e6dbdb] dark:border-[#4a3d3d] bg-white dark:bg-[#3a2d2d] px-4 py-2.5 text-[#181111] dark:text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary [color-scheme:light] dark:[color-scheme:dark]" 
+          type="date"
+          [ngModel]="profile.dob"
+          (ngModelChange)="onUpdate({ dob: $event })"
+        />
+      </div>
+    </div>
+
+    <!-- Gender -->
+    <div class="flex flex-col gap-1">
+      <label class="text-sm font-medium text-[#181111] dark:text-gray-200">Gender</label>
+      <div class="relative">
+        <select 
+          class="w-full rounded-lg border border-[#e6dbdb] dark:border-[#4a3d3d] bg-white dark:bg-[#3a2d2d] px-4 py-2.5 text-[#181111] dark:text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary appearance-none"
+          [ngModel]="profile.gender"
+          (ngModelChange)="onUpdate({ gender: $event })"
+        >
+          <option disabled value="">Select gender</option>
+          <option value="female">Female</option>
+          <option value="male">Male</option>
+          <option value="non-binary">Non-binary</option>
+          <option value="prefer-not-to-say">Prefer not to say</option>
+        </select>
+        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-500">
+          <span class="material-symbols-outlined text-[20px]">expand_more</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Country -->
+    <div class="flex flex-col gap-1">
+      <label class="text-sm font-medium text-[#181111] dark:text-gray-200">Country</label>
+      <div class="relative">
+        <select 
+          class="w-full rounded-lg border border-[#e6dbdb] dark:border-[#4a3d3d] bg-white dark:bg-[#3a2d2d] px-4 py-2.5 text-[#181111] dark:text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary appearance-none"
+          [ngModel]="profile.country"
+          (ngModelChange)="onUpdate({ country: $event })"
+        >
+          <option value="us">United States</option>
+          <option value="uk">United Kingdom</option>
+          <option value="ca">Canada</option>
+          <option value="au">Australia</option>
+          <option value="in">India</option>
+        </select>
+        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none text-gray-500">
+          <span class="material-symbols-outlined text-[20px]">expand_more</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- City -->
+    <div class="flex flex-col gap-1">
+      <label class="text-sm font-medium text-[#181111] dark:text-gray-200">City</label>
+      <input 
+        class="w-full rounded-lg border border-[#e6dbdb] dark:border-[#4a3d3d] bg-white dark:bg-[#3a2d2d] px-4 py-2.5 text-[#181111] dark:text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" 
+        placeholder="Enter city" 
+        type="text" 
+        [ngModel]="profile.city"
+        (ngModelChange)="onUpdate({ city: $event })"
+      />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,171 @@
+<div class="mx-auto flex max-w-7xl flex-col gap-8 animate-in">
+    <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <div class="space-y-2">
+            <nav class="flex items-center gap-2 text-sm text-slate-500">
+                <a class="hover:text-primary transition-colors cursor-pointer" href="#">Home</a>
+                <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+                <span class="font-medium text-slate-800">Communities</span>
+            </nav>
+            <h1 class="text-3xl font-bold text-slate-900">Browse Communities</h1>
+            <p class="text-slate-600">Find your tribe, share experiences, and grow together.</p>
+        </div>
+        <div class="search-box">
+            <span class="material-symbols-outlined text-slate-400">search</span>
+            <input class="search-input" placeholder="Search communities..." type="text" />
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-4">
+        <aside class="flex flex-col gap-6 lg:col-span-1">
+            <div class="sidebar-card">
+                <div class="sidebar-header">
+                    <h3 class="font-bold text-slate-800 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">category</span> Categories
+                    </h3>
+                </div>
+                <div class="space-y-2 mt-4">
+                    <label class="category-item">
+                        <input checked name="category" type="radio" class="radio-custom" />
+                        <span class="text-sm font-medium text-slate-700">All Communities</span>
+                    </label>
+                    <label class="category-item">
+                        <input name="category" type="radio" class="radio-custom" />
+                        <span class="text-sm text-slate-600">ADHD Support</span>
+                    </label>
+                    <label class="category-item">
+                        <input name="category" type="radio" class="radio-custom" />
+                        <span class="text-sm text-slate-600">Anxiety & Stress</span>
+                    </label>
+                    <label class="category-item">
+                        <input name="category" type="radio" class="radio-custom" />
+                        <span class="text-sm text-slate-600">Depression Recovery</span>
+                    </label>
+                    <label class="category-item">
+                        <input name="category" type="radio" class="radio-custom" />
+                        <span class="text-sm text-slate-600">NGO & Volunteers</span>
+                    </label>
+                    <label class="category-item">
+                        <input name="category" type="radio" class="radio-custom" />
+                        <span class="text-sm text-slate-600">Wellness & Yoga</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="sidebar-card border-primary/20 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-primary"></div>
+                <h3 class="font-bold text-slate-800 mb-4 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary">verified_user</span> Guidelines
+                </h3>
+                <div class="space-y-4">
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Before joining a community, please review our core principles to ensure a safe space for
+                        everyone.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-2 text-sm text-slate-700">
+                            <span
+                                class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+                            <span class="text-xs">Be respectful and kind to all members.</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-sm text-slate-700">
+                            <span
+                                class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+                            <span class="text-xs">Maintain strict confidentiality.</span>
+                        </li>
+                        <li class="flex items-start gap-2 text-sm text-slate-700">
+                            <span
+                                class="material-symbols-outlined text-primary text-[18px] shrink-0 mt-0.5">check_circle</span>
+                            <span class="text-xs">No medical advice; share experiences only.</span>
+                        </li>
+                    </ul>
+                    <button class="btn-guidelines">Read Full Guidelines</button>
+                </div>
+            </div>
+        </aside>
+
+        <div class="flex flex-col gap-6 lg:col-span-3">
+            <div class="flex items-center justify-between">
+                <p class="text-sm font-medium text-slate-500">Showing <span
+                        class="text-slate-900 font-bold">Recommended</span> communities</p>
+                <div class="flex items-center gap-2">
+                    <span class="text-sm text-slate-500">Sort by:</span>
+                    <select class="sort-select">
+                        <option>Most Popular</option>
+                        <option>Newest</option>
+                        <option>Alphabetical</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                @for (community of communities; track community.id) {
+                <div class="community-card group" (click)="onCommunityClick(community.id)">
+                    <div class="card-image-wrapper">
+                        @if (community.hasIcon && community.icon) {
+                        <div class="card-icon-wrapper">
+                            <span class="material-symbols-outlined text-6xl text-slate-300">{{ community.icon }}</span>
+                        </div>
+                        } @else {
+                        <div class="card-bg-image" [style.background-image]="'url(' + community.image + ')'"></div>
+                        }
+                        <div class="overlay"></div>
+                        <div class="card-meta">
+                            <span class="tag">{{ community.category }}</span>
+                            <div class="member-count">
+                                <span class="material-symbols-outlined text-[14px]">group</span> {{ community.members }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-slate-900 group-hover:text-primary transition-colors">{{
+                                community.name }}</h3>
+                            <span
+                                class="material-symbols-outlined text-slate-300 hover:text-primary cursor-pointer transition-colors"
+                                (click)="$event.stopPropagation()">favorite</span>
+                        </div>
+                        <p class="text-sm text-slate-600 line-clamp-3 mb-4">
+                            {{ community.description }}
+                        </p>
+                        <div class="card-footer">
+                            <div class="avatar-stack">
+                                @if (community.otherMembers > 0) {
+                                @if (community.id === 1) {
+                                <div class="mini-avatar"
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDAdCcigu6u64UzO3R9ZmLYRwy6UDEOYv0ZhRwrIUlBAP8ogtVH3Wq5DXAkJnJGMs-CI2G1ZJD1sNMUu5mVi3hoJsz17iHBHKl3GP6806u5TjIEtavHVKawftRVNNVSAssOkUpAVguEQBfZItMLqaZv76R1osA_qw6Bb_by1s91TxqxYXSCuyvRKWsqwJDb8ii3v3SoLrXYxUA3fHonkGr4Usj8kDWjM__Yxlv321l0knF5dO4XcVLQlHHrJIzgc-TXZcZLi8e9Jg0W')">
+                                </div>
+                                <div class="mini-avatar"
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB384RmnlKMpzHxJ5GCjE_ksgyjuqckadzx_amIYDNtprX2Cc84NYsSHlOVhfNkvMADMwpoT7EB_xo1nyjTKKZBtDWocm92ewSvlYyjeIumvJT9fJjV-XxqZqYnKgsLedRVa7QvO2g9Rx3d8GXZkrS_b7VCwA_qYM4eJNcrxnr-pUrtDZ0YCZyHjnqJfp_a_AdD7zW_kVYqiMHOAb8FEX774sxskY3EFqCPG0wko0Y9c_7yxsnbHadOsHsBzKj6NqbFvRldcKLAZnWO')">
+                                </div>
+                                } @else if (community.id === 2) {
+                                <div class="mini-avatar"
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAEykk2q2MLkwtTdvNUqNRL2hrsmNGVY8qptijobdoRkamWgLv78jZrruU6yH6usFjtYlCz3dUid1uxOeaqgy9RNYByp42GE4opSmy4Sfvta3TyZp137nxxply3lGX1Yna0s0e6sU4g73UO0lBGCO0ua3Z-KUUlgc0M4HTVT09wI8tMEnKSNk52cQluOfXl3AsqAjRgt-k0HHsD--Rbd7X-cVCef5jKffRvq9II5zP59JG8MiH6FmWE_bepGeK6SDEX1ijABqAhgR4c')">
+                                </div>
+                                } @else if (community.id === 3) {
+                                <div class="mini-avatar"
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAEykk2q2MLkwtTdvNUqNRL2hrsmNGVY8qptijobdoRkamWgLv78jZrruU6yH6usFjtYlCz3dUid1uxOeaqgy9RNYByp42GE4opSmy4Sfvta3TyZp137nxxply3lGX1Yna0s0e6sU4g73UO0lBGCO0ua3Z-KUUlgc0M4HTVT09wI8tMEnKSNk52cQluOfXl3AsqAjRgt-k0HHsD--Rbd7X-cVCef5jKffRvq9II5zP59JG8MiH6FmWE_bepGeK6SDEX1ijABqAhgR4c')">
+                                </div>
+                                <div class="mini-avatar"
+                                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAEykk2q2MLkwtTdvNUqNRL2hrsmNGVY8qptijobdoRkamWgLv78jZrruU6yH6usFjtYlCz3dUid1uxOeaqgy9RNYByp42GE4opSmy4Sfvta3TyZp137nxxply3lGX1Yna0s0e6sU4g73UO0lBGCO0ua3Z-KUUlgc0M4HTVT09wI8tMEnKSNk52cQluOfXl3AsqAjRgt-k0HHsD--Rbd7X-cVCef5jKffRvq9II5zP59JG8MiH6FmWE_bepGeK6SDEX1ijABqAhgR4c')">
+                                </div>
+                                }
+                                <div class="mini-avatar-count">+{{ community.otherMembers }}</div>
+                                }
+                            </div>
+                            <button class="btn-join-group">Join Group</button>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+
+            <div class="pagination">
+                <button class="page-nav-btn"><span class="material-symbols-outlined">chevron_left</span></button>
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-nav-btn"><span class="material-symbols-outlined">chevron_right</span></button>
+            </div>
+        </div>
+    </div>
+</div>

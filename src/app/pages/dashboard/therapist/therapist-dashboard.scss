@@ -1,0 +1,104 @@
+// Therapist Dashboard Styles
+
+// Custom Scrollbar Styles
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+// Dashboard Container
+:host {
+  display: block;
+  background-color: #f0fdf4; // background-light
+  min-height: 100vh;
+}
+
+// Main container styling
+.relative {
+  background-color: #f0fdf4;
+}
+
+// Smooth transitions for interactive elements
+button, a, label, select {
+  transition: all 0.2s ease-in-out;
+}
+
+// Card hover effects
+.rounded-2xl, .rounded-3xl, .rounded-xl {
+  transition: all 0.3s ease-in-out;
+}
+
+// Table row hover effects
+tr {
+  transition: background-color 0.2s ease-in-out;
+}
+
+// Primary color utilities
+.text-primary {
+  color: #F87171;
+}
+
+.bg-primary {
+  background-color: #F87171;
+}
+
+.border-primary {
+  border-color: #F87171;
+}
+
+// Primary hover state
+.hover\:bg-primary-hover:hover {
+  background-color: #ef4444;
+}
+
+.hover\:text-primary-hover:hover {
+  color: #ef4444;
+}
+
+// Alert and notification styling
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+// Progress bar styling
+.progress-bar {
+  transition: width 0.3s ease-in-out;
+}
+
+// Message container scrollbar
+.overflow-y-auto {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+  }
+  
+  &::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}

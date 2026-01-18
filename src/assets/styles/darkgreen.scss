@@ -155,15 +155,15 @@ input[type="email"],
 input[type="password"],
 textarea,
 select {
-  background: var(--surface-muted);
-  color: var(--text);
+  background: white;
+  color: black;
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 0.625rem 0.75rem;
 }
 input::placeholder,
 textarea::placeholder {
-  color: color-mix(in oklab, var(--text) 60%, transparent);
+  color: color-mix(in oklab, black 60%, transparent);
 }
 input:focus,
 textarea:focus,

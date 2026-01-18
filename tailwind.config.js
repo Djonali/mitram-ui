@@ -1,4 +1,5 @@
 ﻿module.exports = {
+  darkMode: "class",
   content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {
@@ -15,8 +16,14 @@
           800: "#153f8f",
           900: "#143876",
         },
+        primary: "#F87171",
+        "primary-hover": "#ef4444",
+        "background-light": "#f0fdf4",
+        "background-dark": "#052e16",
+        surface: "#ffffff",
       },
       fontFamily: {
+        display: ["Inter", "sans-serif"],
         sans: [
           "Inter",
           "ui-sans-serif",
@@ -28,6 +35,12 @@
           "Apple Color Emoji",
           "Segoe UI Emoji",
         ],
+      },
+      borderRadius: {
+        DEFAULT: "0.375rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        full: "9999px",
       },
       spacing: {
         13: "3.25rem",

@@ -7,7 +7,7 @@ import { WaitlistService, WaitlistFormData } from '../../services/waitlist.servi
 @Component({
     selector: 'app-home',
     standalone: true,
-    imports: [CommonModule, RouterLink, WaitlistModalComponent],
+    imports: [CommonModule, WaitlistModalComponent],
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss']
 })

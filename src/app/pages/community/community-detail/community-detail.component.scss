@@ -1,0 +1,132 @@
+// Community Detail Styles
+
+// Community Header
+.community-header-image {
+  @apply h-64 md:h-80 w-full bg-cover bg-center;
+}
+
+.community-header-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent;
+}
+
+.community-header-content {
+  @apply absolute inset-0 flex items-end p-6 md:p-10;
+}
+
+.community-category-tag {
+  @apply inline-block rounded-full bg-white/20 backdrop-blur-md px-4 py-1.5 text-xs font-black text-white border border-white/30 uppercase tracking-widest;
+}
+
+// Buttons
+.btn-join-community {
+  @apply flex items-center gap-2 rounded-2xl bg-primary px-6 py-3 text-sm font-black text-white shadow-xl shadow-primary/30 hover:bg-primary-hover transition-all;
+}
+
+.btn-leave-community {
+  @apply flex items-center gap-2 rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 px-6 py-3 text-sm font-black text-white hover:bg-white/30 transition-all;
+}
+
+.btn-share-community {
+  @apply flex items-center justify-center rounded-2xl bg-white/20 backdrop-blur-md border border-white/30 p-3 text-white hover:bg-white/30 transition-all;
+}
+
+// Tabs
+.tab-active {
+  @apply border-primary text-primary whitespace-nowrap py-4 px-1 border-b-2 font-bold text-sm flex items-center gap-2 transition-colors;
+}
+
+.tab-inactive {
+  @apply border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm flex items-center gap-2 transition-colors;
+}
+
+// Create Post
+.create-post-card {
+  @apply rounded-3xl border border-slate-100 bg-white p-6 shadow-sm;
+}
+
+.user-avatar {
+  @apply h-12 w-12 rounded-full bg-cover bg-center border-2 border-white shadow-sm flex-shrink-0;
+}
+
+.post-input {
+  @apply w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10 focus:bg-white transition-all outline-none resize-none;
+}
+
+.post-action-btn {
+  @apply p-2 rounded-xl text-slate-400 hover:text-primary hover:bg-primary/5 transition-all;
+}
+
+.btn-post-submit {
+  @apply rounded-xl bg-primary px-5 py-2 text-xs font-black text-white shadow-lg shadow-primary/20 hover:bg-primary-hover transition-all uppercase tracking-widest;
+}
+
+// Post Card
+.post-card {
+  @apply rounded-3xl border border-slate-100 bg-white p-6 shadow-sm hover:shadow-md transition-all;
+}
+
+.post-menu-btn {
+  @apply p-2 rounded-full text-slate-400 hover:text-slate-600 hover:bg-slate-50 transition-all;
+}
+
+.post-interaction-btn {
+  @apply flex items-center gap-2 text-slate-500 hover:text-primary transition-colors font-medium text-sm;
+}
+
+// Members
+.members-header {
+  @apply flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6;
+}
+
+.member-search-input {
+  @apply rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all outline-none;
+}
+
+.member-card {
+  @apply flex items-center gap-4 p-4 rounded-2xl border border-slate-100 bg-white hover:border-primary/20 hover:shadow-md transition-all;
+}
+
+.member-avatar {
+  @apply h-14 w-14 rounded-full bg-cover bg-center border-2 border-white shadow-sm flex-shrink-0;
+}
+
+.member-role {
+  @apply text-xs text-slate-500 font-medium;
+}
+
+.member-action-btn {
+  @apply p-2 rounded-full text-slate-400 hover:text-primary hover:bg-primary/5 transition-all ml-auto;
+}
+
+// About Section
+.about-section-card {
+  @apply rounded-3xl border border-slate-100 bg-white p-6 shadow-sm;
+}
+
+// Sidebar
+.sidebar-card {
+  @apply rounded-3xl border border-slate-100 bg-white p-6 shadow-sm;
+}
+
+.btn-guidelines {
+  @apply w-full rounded-2xl border border-primary/20 bg-primary/5 py-3 text-[10px] font-black text-primary hover:bg-primary hover:text-white transition-all uppercase tracking-widest;
+}
+
+// Custom Scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

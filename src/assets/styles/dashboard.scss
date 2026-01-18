@@ -1,0 +1,102 @@
+.schedule-card {
+    @apply flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 rounded-2xl border transition-all cursor-pointer;
+    
+    &.completed {
+      @apply border-slate-100 bg-slate-50/50 hover:bg-white;
+    }
+    
+    &.active {
+      @apply border-primary/20 bg-primary/5 hover:border-primary/40 relative overflow-hidden;
+      &:before {
+        content: '';
+        @apply absolute left-0 top-0 h-full w-1.5 bg-primary;
+      }
+    }
+    
+    &:not(.active):not(.completed) {
+      @apply border-slate-100 bg-white hover:border-primary/20;
+    }
+  
+    .status-icon {
+      @apply flex-shrink-0 flex items-center justify-center w-14 h-14 bg-slate-100 rounded-xl border border-slate-200 text-slate-400;
+    }
+    
+    .date-badge {
+      @apply flex-shrink-0 flex flex-col items-center justify-center w-14 h-14 bg-white rounded-xl border border-slate-200 shadow-sm transition-transform;
+    }
+    
+    .date-badge-muted {
+      @apply flex-shrink-0 flex flex-col items-center justify-center w-14 h-14 bg-white rounded-xl border border-slate-100;
+    }
+  }
+  
+  .badge-success {
+    @apply text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-black uppercase tracking-wider;
+  }
+  
+  .badge-now {
+    @apply text-[10px] bg-primary text-white px-2 py-0.5 rounded-full font-black animate-pulse uppercase tracking-widest;
+  }
+  
+  .btn-log {
+    @apply flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-primary/30 text-primary text-xs font-black hover:bg-primary hover:text-white transition-all shadow-sm;
+  }
+  
+  .btn-join {
+    @apply flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-white text-xs font-black hover:bg-primary-hover shadow-lg shadow-primary/20 transition-all;
+  }
+  
+  .btn-icon {
+    @apply p-2 rounded-full bg-slate-100 text-slate-500 hover:text-primary transition-colors;
+  }
+  
+  .progress-row {
+    @apply hover:bg-slate-50 transition-colors border-t border-slate-50;
+  }
+  
+  .btn-action-small {
+    @apply text-primary hover:text-primary-hover font-black text-[10px] border border-primary/20 px-3 py-1.5 rounded-lg hover:bg-primary/5 uppercase tracking-wider;
+    &.alert {
+      @apply bg-primary/10 text-primary border-none hover:bg-primary hover:text-white;
+    }
+  }
+  
+  .input-modern {
+    @apply w-full rounded-2xl border-slate-200 bg-white text-sm focus:border-primary focus:ring-4 focus:ring-primary/10 shadow-sm py-3 px-4 transition-all;
+  }
+  
+  .btn-primary-large {
+    @apply w-full flex items-center justify-center gap-2 rounded-2xl bg-primary px-4 py-4 text-sm font-black text-white hover:bg-primary-hover shadow-xl shadow-primary/25 transition-all;
+  }
+  
+  .label-tiny {
+    @apply block text-[10px] font-black text-slate-400 mb-1.5 uppercase tracking-widest;
+  }
+  
+  .alert-box {
+    @apply p-4 rounded-2xl border flex gap-3;
+    &.critical { @apply bg-red-50 border-red-100; }
+    &.info { @apply bg-slate-50 border-slate-100; }
+  }
+  
+  .btn-text-red { @apply mt-2 text-[10px] font-black text-red-500 hover:text-red-700 uppercase tracking-widest; }
+  .btn-text-primary { @apply mt-2 text-[10px] font-black text-primary hover:text-primary-hover uppercase tracking-widest; }
+  
+  .message-preview {
+    @apply flex gap-3;
+    .avatar-small {
+      @apply w-9 h-9 rounded-full flex items-center justify-center text-[10px] font-black flex-shrink-0;
+      &.sj { @apply bg-indigo-100 text-indigo-500; }
+    }
+    .content {
+      @apply bg-slate-50 p-3 rounded-2xl rounded-tl-none text-xs text-slate-700 border border-slate-100 w-full shadow-sm;
+      .name { @apply block font-black text-slate-800 mb-1; }
+      .text { @apply line-clamp-1; }
+      .time { @apply mt-1 text-[9px] font-black text-slate-400 uppercase; }
+    }
+  }
+  
+  .btn-view-all {
+    @apply w-full flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white py-3 text-xs font-black text-slate-600 hover:border-primary hover:text-primary transition-all shadow-sm uppercase tracking-widest;
+  }
+  

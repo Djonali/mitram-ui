@@ -1,0 +1,121 @@
+.search-box {
+  @apply flex w-full max-w-md items-center rounded-lg border border-slate-200 bg-white px-3 py-2 shadow-sm focus-within:border-primary focus-within:ring-1 focus-within:ring-primary md:w-auto;
+}
+
+.search-input {
+  @apply w-full border-none bg-transparent p-2 text-sm placeholder:text-slate-400 focus:ring-0 outline-none;
+}
+
+.sidebar-card {
+  @apply rounded-xl border border-slate-100 bg-white p-5 shadow-sm;
+}
+
+.sidebar-header {
+  @apply mb-4 flex items-center justify-between border-b border-slate-100 pb-3;
+}
+
+.category-item {
+  @apply flex items-center gap-3 p-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-colors;
+}
+
+.radio-custom {
+  @apply h-4 w-4 rounded-full border-slate-300 text-primary focus:ring-primary;
+}
+
+.btn-guidelines {
+  @apply w-full mt-4 rounded-lg border border-primary/20 bg-primary/5 py-2 text-xs font-semibold text-primary hover:bg-primary hover:text-white transition-all;
+}
+
+.sort-select {
+  @apply border-none bg-transparent py-0 pl-2 pr-8 text-sm font-semibold text-slate-800 focus:ring-0 cursor-pointer;
+}
+
+.community-card {
+  @apply relative flex flex-col rounded-2xl border border-slate-100 bg-white shadow-sm transition-all hover:shadow-lg hover:-translate-y-1 cursor-pointer;
+
+  .card-image-wrapper {
+    @apply relative h-40 w-full overflow-hidden rounded-t-2xl;
+    
+    .card-bg-image {
+      @apply h-full w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105;
+    }
+
+    .card-icon-wrapper {
+      @apply h-full w-full bg-slate-100 flex items-center justify-center transition-transform duration-500 group-hover:scale-105;
+    }
+    
+    .overlay {
+      @apply absolute inset-0 bg-gradient-to-t from-black/60 to-transparent;
+    }
+    
+    .card-meta {
+      @apply absolute bottom-3 left-3 right-3 flex justify-between items-end;
+      
+      .tag {
+        @apply rounded-full bg-white/20 backdrop-blur-md px-2 py-1 text-[10px] font-medium text-white border border-white/30;
+      }
+      
+      .member-count {
+        @apply flex items-center gap-1 text-white text-xs font-medium;
+      }
+    }
+  }
+  
+  .card-body {
+    @apply flex flex-1 flex-col p-5;
+  }
+}
+
+.avatar-stack {
+  @apply flex -space-x-2;
+  
+  .mini-avatar {
+    @apply h-6 w-6 rounded-full border-2 border-white bg-slate-200 bg-cover shadow-sm;
+  }
+  
+  .mini-avatar-count {
+    @apply flex h-6 w-6 items-center justify-center rounded-full border-2 border-white bg-slate-100 text-[10px] font-bold text-slate-500;
+  }
+}
+
+.btn-join-group {
+  @apply rounded-lg bg-primary px-4 py-2 text-sm font-bold text-white shadow-md shadow-primary/20 hover:bg-primary-hover transition-colors;
+}
+
+.card-footer {
+  @apply mt-auto pt-4 border-t border-slate-50 flex items-center justify-between;
+}
+
+.pagination {
+  @apply mt-4 flex items-center justify-center gap-2;
+  
+  .page-btn {
+    @apply flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 transition-all;
+    &.active {
+      @apply bg-primary border-primary text-white shadow-md shadow-primary/20;
+    }
+  }
+  
+  .page-nav-btn {
+    @apply flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-slate-500 hover:border-primary hover:text-primary disabled:opacity-50 transition-all;
+  }
+}
+
+// Custom Scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

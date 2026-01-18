@@ -1,0 +1,50 @@
+
+<div class="bg-white dark:bg-[#2a1d1d] rounded-xl shadow-sm border border-[#e6dbdb] dark:border-[#3a2d2d] overflow-hidden transition-all duration-200">
+  <div class="px-6 py-4 border-b border-[#e6dbdb] dark:border-[#3a2d2d] flex items-center gap-3">
+    <div class="p-2 rounded-lg bg-primary/10 text-primary">
+      <span class="material-symbols-outlined">security</span>
+    </div>
+    <h3 class="text-[#181111] dark:text-white text-lg font-bold">Privacy & Anonymity</h3>
+  </div>
+  
+  <div class="p-6 flex flex-col gap-6">
+    <div class="flex flex-col sm:flex-row justify-between gap-4 p-4 rounded-lg bg-background-light dark:bg-[#221010] border border-[#e6dbdb] dark:border-[#3a2d2d]">
+      <div class="flex flex-col gap-1">
+        <span class="text-[#181111] dark:text-white font-semibold">Anonymous Mode</span>
+        <span class="text-[#8a6060] dark:text-[#a08080] text-sm">
+          When enabled, your real name is hidden and your nickname is displayed in communities.
+        </span>
+      </div>
+      <div class="flex items-center">
+        <label class="inline-flex items-center cursor-pointer">
+          <input 
+            type="checkbox" 
+            class="sr-only peer" 
+            [ngModel]="profile.anonymousMode"
+            (ngModelChange)="onUpdate({ anonymousMode: $event })"
+          />
+          <div class="relative w-11 h-6 bg-gray-300 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-primary/20 rounded-full peer dark:bg-gray-600 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+        </label>
+      </div>
+    </div>
+
+    <div>
+      <label class="text-sm font-medium text-[#181111] dark:text-gray-200 mb-2 block">Public Nickname</label>
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-gray-400">
+          <span class="material-symbols-outlined text-[20px]">alternate_email</span>
+        </div>
+        <input 
+          class="w-full rounded-lg border border-[#e6dbdb] dark:border-[#4a3d3d] bg-white dark:bg-[#3a2d2d] pl-10 pr-4 py-2.5 text-[#181111] dark:text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary placeholder:text-[#8a6060]/50 dark:placeholder:text-[#a08080]/50" 
+          placeholder="Choose a nickname" 
+          type="text" 
+          [ngModel]="profile.nickname"
+          (ngModelChange)="onUpdate({ nickname: $event })"
+        />
+      </div>
+      <p class="mt-2 text-xs text-[#8a6060] dark:text-[#a08080]">
+        This is how you will appear to others when Anonymous Mode is on.
+      </p>
+    </div>
+  </div>
+</div>

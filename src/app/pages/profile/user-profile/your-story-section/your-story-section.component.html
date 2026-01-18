@@ -1,0 +1,51 @@
+
+<div class="bg-white dark:bg-[#2a1d1d] rounded-xl shadow-sm border border-[#e6dbdb] dark:border-[#3a2d2d] overflow-hidden flex flex-col h-full transition-all duration-200">
+  <div class="px-6 py-4 border-b border-[#e6dbdb] dark:border-[#3a2d2d] flex items-center gap-3">
+    <div class="p-2 rounded-lg bg-primary/10 text-primary">
+      <span class="material-symbols-outlined">psychology</span>
+    </div>
+    <h3 class="text-[#181111] dark:text-white text-lg font-bold">Your Story</h3>
+  </div>
+
+  <div class="p-6 flex flex-col gap-4 flex-1">
+    <div class="bg-primary/5 rounded-lg p-4 border border-primary/10">
+      <div class="flex gap-3">
+        <span class="material-symbols-outlined text-primary text-[20px]">info</span>
+        <p class="text-sm text-[#8a6060] dark:text-[#dcbaba]">
+          Sharing your context helps us connect you with the right support groups and resources.
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-2 flex-1">
+      <label class="text-sm font-medium text-[#181111] dark:text-gray-200">What are you navigating?</label>
+      <textarea 
+        class="w-full flex-1 min-h-[200px] lg:min-h-[400px] rounded-lg border border-[#e6dbdb] dark:border-[#4a3d3d] bg-white dark:bg-[#3a2d2d] p-4 text-[#181111] dark:text-white focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary placeholder:text-[#8a6060]/50 resize-none leading-relaxed transition-all" 
+        placeholder="Tell us about your journey..."
+        [ngModel]="profile.story"
+        (ngModelChange)="onUpdate({ story: $event })"
+      ></textarea>
+    </div>
+
+    <div class="flex flex-wrap gap-2 mt-2">
+      <span 
+        *ngFor="let tag of profile.tags"
+        class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 dark:bg-[#3a2d2d] text-gray-800 dark:text-gray-200 group cursor-default"
+      >
+        {{ tag }}
+        <button 
+          (click)="removeTag(tag)"
+          class="hover:text-primary transition-colors focus:outline-none opacity-0 group-hover:opacity-100"
+        >
+          <span class="material-symbols-outlined text-[14px]">close</span>
+        </button>
+      </span>
+      <button 
+        (click)="addTag()"
+        class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium border border-dashed border-gray-300 dark:border-gray-600 text-gray-500 hover:text-primary hover:border-primary transition-colors focus:outline-none"
+      >
+        + Add tags
+      </button>
+    </div>
+  </div>
+</div>

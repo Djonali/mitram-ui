@@ -1,0 +1,23 @@
+@import '../../../../assets/styles/dashboard.scss';
+
+.earning-row {
+  @apply hover:bg-slate-50 transition-colors border-t border-slate-50;
+}
+
+.badge-pill {
+  @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-[10px] font-black uppercase tracking-wider;
+  &.success { @apply bg-green-50 text-green-700 ring-1 ring-inset ring-green-600/20; }
+  &.error { @apply bg-red-50 text-red-700 ring-1 ring-inset ring-red-600/20; }
+}
+
+.btn-action-outline {
+  @apply flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-primary/30 text-primary text-xs font-black hover:bg-primary hover:text-white transition-all shadow-sm;
+}
+
+.update-box {
+  @apply p-4 rounded-2xl bg-slate-50 border border-slate-100 flex gap-3;
+}
+
+.btn-text {
+  @apply mt-2 text-[10px] font-black text-primary hover:text-primary-hover uppercase tracking-widest;
+}

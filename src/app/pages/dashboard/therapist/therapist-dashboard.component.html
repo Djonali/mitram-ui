@@ -1,0 +1,312 @@
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+  
+    <main class="flex-1 px-4 py-8 md:px-10 lg:px-20 xl:px-32">
+        <div class="mx-auto flex max-w-7xl flex-col gap-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <h1 class="text-3xl font-bold text-slate-900">Good Morning, Dr. Emily!</h1>
+                    <p class="text-slate-600 mt-2 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-sm">assignment_turned_in</span>
+                        You have 4 sessions today and 2 pending notes to complete.
+                    </p>
+                </div>
+                <div class="flex gap-3">
+                    <button
+                        class="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:border-primary hover:text-primary transition-all shadow-sm">
+                        <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+                        <span>October 24, 2023</span>
+                    </button>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">schedule</span>
+                                Today's Schedule
+                            </h3>
+                            <button class="text-sm font-medium text-primary hover:text-primary-hover">View Full
+                                Calendar</button>
+                        </div>
+                        <div class="space-y-4">
+                            <div
+                                class="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 rounded-xl border border-slate-100 bg-slate-50/50 hover:border-primary/20 transition-all">
+                                <div
+                                    class="flex-shrink-0 flex flex-col items-center justify-center w-14 h-14 bg-slate-100 rounded-lg border border-slate-200">
+                                    <span class="material-symbols-outlined text-slate-400">check_circle</span>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-2">
+                                        <h4 class="font-bold text-slate-900">Sarah Johnson</h4>
+                                        <span
+                                            class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-medium">Completed</span>
+                                    </div>
+                                    <p class="text-sm text-slate-500">Cognitive Behavioral Therapy • 09:00 AM</p>
+                                </div>
+                                <div class="flex items-center gap-3 mt-2 sm:mt-0">
+                                    <button
+                                        class="flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-primary/30 text-primary text-sm font-bold hover:bg-primary hover:text-white transition-all shadow-sm">
+                                        <span class="material-symbols-outlined text-[18px]">edit_note</span>
+                                        Log Session Notes
+                                    </button>
+                                </div>
+                            </div>
+                            <div
+                                class="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 rounded-xl border border-primary/20 bg-primary/5 hover:border-primary/40 transition-all relative overflow-hidden">
+                                <div class="absolute left-0 top-0 h-full w-1 bg-primary"></div>
+                                <div
+                                    class="flex-shrink-0 flex flex-col items-center justify-center w-14 h-14 bg-white rounded-lg border border-slate-200 shadow-sm">
+                                    <span class="text-xs font-bold text-primary uppercase">Oct</span>
+                                    <span class="text-xl font-bold text-slate-800">24</span>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex items-center gap-2">
+                                        <h4 class="font-bold text-slate-900">Michael Brown</h4>
+                                        <span
+                                            class="text-xs bg-primary text-white px-2 py-0.5 rounded-full font-bold animate-pulse">Now</span>
+                                    </div>
+                                    <p class="text-sm text-slate-500">Anxiety Management • 10:00 AM</p>
+                                </div>
+                                <div class="flex items-center gap-3 mt-2 sm:mt-0">
+                                    <button
+                                        class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white text-sm font-bold hover:bg-primary-hover shadow-md shadow-primary/20 transition-all">
+                                        <span class="material-symbols-outlined text-[18px]">videocam</span>
+                                        Join Session
+                                    </button>
+                                </div>
+                            </div>
+                            <div
+                                class="flex flex-col sm:flex-row items-start sm:items-center gap-4 p-4 rounded-xl border border-slate-100 bg-white hover:border-primary/20 transition-all">
+                                <div
+                                    class="flex-shrink-0 flex flex-col items-center justify-center w-14 h-14 bg-white rounded-lg border border-slate-200">
+                                    <span class="text-xs font-bold text-slate-500 uppercase">Oct</span>
+                                    <span class="text-xl font-bold text-slate-600">24</span>
+                                </div>
+                                <div class="flex-1">
+                                    <h4 class="font-bold text-slate-900">Jessica Wong</h4>
+                                    <p class="text-sm text-slate-500">Regular Check-in • 02:00 PM</p>
+                                </div>
+                                <div class="flex items-center gap-3 mt-2 sm:mt-0">
+                                    <button
+                                        class="p-2 rounded-full bg-slate-100 text-slate-500 hover:text-primary transition-colors">
+                                        <span class="material-symbols-outlined text-[20px]">visibility</span>
+                                    </button>
+                                    <button
+                                        class="p-2 rounded-full bg-slate-100 text-slate-500 hover:text-primary transition-colors">
+                                        <span class="material-symbols-outlined text-[20px]">more_vert</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                                    <span class="material-symbols-outlined text-primary">trending_up</span>
+                                    Patient Progress Overview
+                                </h3>
+                                <p class="text-sm text-slate-500 mt-1">Monitor habit adherence and mood trends.</p>
+                            </div>
+                            <button class="p-2 text-slate-400 hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined">filter_list</span>
+                            </button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="text-xs text-slate-500 border-b border-slate-100">
+                                        <th class="pb-3 font-medium pl-2">Patient</th>
+                                        <th class="pb-3 font-medium">Habit Adherence</th>
+                                        <th class="pb-3 font-medium">Mood Trend</th>
+                                        <th class="pb-3 font-medium text-right pr-2">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-sm">
+                                    <tr class="group hover:bg-slate-50 transition-colors">
+                                        <td class="py-4 pl-2 font-semibold text-slate-700">Sarah Johnson</td>
+                                        <td class="py-4">
+                                            <div class="w-24 h-2 bg-slate-100 rounded-full overflow-hidden">
+                                                <div class="h-full bg-green-500 rounded-full" style="width: 85%"></div>
+                                            </div>
+                                            <span class="text-xs text-slate-400 mt-1 block">85% this week</span>
+                                        </td>
+                                        <td class="py-4">
+                                            <div class="flex items-center gap-1 text-green-600 font-medium">
+                                                <span class="material-symbols-outlined text-lg">trending_up</span>
+                                                Improving
+                                            </div>
+                                        </td>
+                                        <td class="py-4 text-right pr-2">
+                                            <button
+                                                class="text-primary hover:text-primary-hover font-medium text-xs border border-primary/20 px-3 py-1.5 rounded-lg hover:bg-primary/5">View</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="group hover:bg-slate-50 transition-colors border-t border-slate-50">
+                                        <td class="py-4 pl-2 font-semibold text-slate-700">Michael Brown</td>
+                                        <td class="py-4">
+                                            <div class="w-24 h-2 bg-slate-100 rounded-full overflow-hidden">
+                                                <div class="h-full bg-orange-400 rounded-full" style="width: 45%"></div>
+                                            </div>
+                                            <span class="text-xs text-slate-400 mt-1 block">45% this week</span>
+                                        </td>
+                                        <td class="py-4">
+                                            <div class="flex items-center gap-1 text-orange-500 font-medium">
+                                                <span class="material-symbols-outlined text-lg">remove</span>
+                                                Stable
+                                            </div>
+                                        </td>
+                                        <td class="py-4 text-right pr-2">
+                                            <button
+                                                class="text-primary hover:text-primary-hover font-medium text-xs border border-primary/20 px-3 py-1.5 rounded-lg hover:bg-primary/5">View</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="group hover:bg-slate-50 transition-colors border-t border-slate-50">
+                                        <td class="py-4 pl-2 font-semibold text-slate-700">Jessica Wong</td>
+                                        <td class="py-4">
+                                            <div class="w-24 h-2 bg-slate-100 rounded-full overflow-hidden">
+                                                <div class="h-full bg-primary rounded-full" style="width: 20%"></div>
+                                            </div>
+                                            <span class="text-xs text-slate-400 mt-1 block">20% this week</span>
+                                        </td>
+                                        <td class="py-4">
+                                            <div class="flex items-center gap-1 text-red-500 font-medium">
+                                                <span class="material-symbols-outlined text-lg">trending_down</span>
+                                                Needs Attn
+                                            </div>
+                                        </td>
+                                        <td class="py-4 text-right pr-2">
+                                            <button
+                                                class="bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors font-medium text-xs px-3 py-1.5 rounded-lg">Alert</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-1 space-y-6">
+                    <div
+                        class="rounded-2xl border border-slate-100 bg-gradient-to-br from-white to-slate-50 p-6 shadow-sm relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-3 opacity-5 group-hover:opacity-10 transition-opacity">
+                            <span class="material-symbols-outlined text-8xl text-primary">assignment_add</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2 relative z-10">
+                            <span class="material-symbols-outlined text-primary">playlist_add_check</span>
+                            Assign Habit
+                        </h3>
+                        <div class="space-y-4 relative z-10">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 mb-1.5 uppercase">Select
+                                    Patient</label>
+                                <select
+                                    class="w-full rounded-xl border-slate-200 bg-white text-sm focus:border-primary focus:ring-primary shadow-sm py-2.5">
+                                    <option>Michael Brown</option>
+                                    <option>Sarah Johnson</option>
+                                    <option>Jessica Wong</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-500 mb-1.5 uppercase">Treatment
+                                    Habit</label>
+                                <select
+                                    class="w-full rounded-xl border-slate-200 bg-white text-sm focus:border-primary focus:ring-primary shadow-sm py-2.5">
+                                    <option>Mindful Breathing (10 min)</option>
+                                    <option>Gratitude Journaling</option>
+                                    <option>Sleep Hygiene Routine</option>
+                                    <option>Morning Walk</option>
+                                    <option>Mood Check-in</option>
+                                </select>
+                            </div>
+                            <div class="pt-2">
+                                <button
+                                    class="w-full flex items-center justify-center gap-2 rounded-xl bg-primary px-4 py-3 text-sm font-bold text-white hover:bg-primary-hover shadow-lg shadow-primary/20 transition-all">
+                                    <span class="material-symbols-outlined text-[20px]">add_task</span>
+                                    Assign to Patient
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+                        <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary">notifications_active</span>
+                            Clinical Alerts
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-xl bg-red-50 border border-red-100 relative">
+                                <div class="flex gap-3">
+                                    <span class="material-symbols-outlined text-red-400 text-sm mt-0.5">warning</span>
+                                    <div>
+                                        <p class="text-sm font-bold text-slate-800 mb-1">High Stress Reported</p>
+                                        <p class="text-xs text-slate-600 leading-relaxed">
+                                            Jessica Wong reported a stress level of 9/10 during her last check-in.
+                                        </p>
+                                        <button class="mt-2 text-xs font-bold text-red-500 hover:text-red-700">Review
+                                            Check-in</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                                <div class="flex gap-3">
+                                    <span class="material-symbols-outlined text-slate-400 text-sm mt-0.5">info</span>
+                                    <div>
+                                        <p class="text-sm font-bold text-slate-800 mb-1">Habit Streak Broken</p>
+                                        <p class="text-xs text-slate-600 leading-relaxed">
+                                            Michael has missed his "Morning Meditation" for 3 consecutive days.
+                                        </p>
+                                        <button
+                                            class="mt-2 text-xs font-bold text-primary hover:text-primary-hover">Send
+                                            Reminder</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm flex flex-col h-[320px]">
+                        <div class="flex items-center justify-between mb-4 border-b border-slate-50 pb-2">
+                            <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                                <span class="material-symbols-outlined text-primary">forum</span>
+                                Patient Messages
+                            </h3>
+                            <span class="text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded-md font-medium">3
+                                New</span>
+                        </div>
+                        <div class="flex-1 overflow-y-auto space-y-4 pr-1 mb-4">
+                            <div class="flex gap-2">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-500 flex items-center justify-center text-xs font-bold flex-shrink-0">
+                                    SJ</div>
+                                <div
+                                    class="bg-slate-50 p-3 rounded-2xl rounded-tl-none text-xs text-slate-700 border border-slate-100 w-full">
+                                    <span class="block font-bold text-slate-800 mb-1">Sarah Johnson</span>
+                                    Hi Dr. Emily, the breathing exercises really helped with the anxiety this morning.
+                                    <div class="mt-1 text-[10px] text-slate-400">10:30 AM</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xs font-bold flex-shrink-0">
+                                    MB</div>
+                                <div
+                                    class="bg-slate-50 p-3 rounded-2xl rounded-tl-none text-xs text-slate-700 border border-slate-100 w-full">
+                                    <span class="block font-bold text-slate-800 mb-1">Michael Brown</span>
+                                    Can we reschedule our next session?
+                                    <div class="mt-1 text-[10px] text-slate-400">09:15 AM</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <button
+                                class="w-full flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white py-2 text-sm font-medium text-slate-600 hover:border-primary hover:text-primary transition-colors">
+                                <span class="material-symbols-outlined text-[18px]">chat</span>
+                                View All Messages
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</div>

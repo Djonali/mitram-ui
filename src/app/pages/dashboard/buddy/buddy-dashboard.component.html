@@ -1,0 +1,129 @@
+<div class="mx-auto flex max-w-7xl flex-col gap-8 animate-in">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div>
+        <h1 class="text-3xl font-bold text-slate-900 tracking-tight">Good Morning, Alex!</h1>
+        <p class="text-slate-600 mt-2 flex items-center gap-2 font-medium">
+          <span class="material-symbols-outlined text-primary text-sm">event_available</span>
+          You have 3 sessions scheduled today.
+        </p>
+      </div>
+      <div class="flex gap-3">
+        <button class="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-bold text-slate-700 hover:border-primary hover:text-primary transition-all shadow-sm">
+          <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+          <span>October 24, 2024</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="lg:col-span-2 space-y-8">
+        <!-- Appointments -->
+        <div class="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary">schedule</span>
+              Today's Appointments
+            </h3>
+            <button class="text-sm font-bold text-primary hover:text-primary-hover">View Calendar</button>
+          </div>
+          
+          <div class="space-y-4">
+            <div class="schedule-card completed">
+              <div class="status-icon"><span class="material-symbols-outlined">check_circle</span></div>
+              <div class="flex-1">
+                <div class="flex items-center gap-2">
+                  <h4 class="font-bold text-slate-900">Sarah Johnson</h4>
+                  <span class="badge-success">Completed</span>
+                </div>
+                <p class="text-sm text-slate-500 font-medium">Weekly Check-in • 09:00 AM</p>
+              </div>
+              <button class="btn-action-outline"><span class="material-symbols-outlined text-[18px]">notes</span> Add Notes</button>
+            </div>
+
+            <div class="schedule-card active">
+              <div class="date-badge"><span class="text-xs font-bold text-primary">Oct</span><span class="text-xl font-bold">24</span></div>
+              <div class="flex-1">
+                <div class="flex items-center gap-2">
+                  <h4 class="font-bold text-slate-900">Michael Brown</h4>
+                  <span class="badge-now">Now</span>
+                </div>
+                <p class="text-sm text-slate-500 font-medium">Listening Session • 10:00 AM</p>
+              </div>
+              <button class="btn-join"><span class="material-symbols-outlined text-[18px]">videocam</span> Join Call</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Earnings Table -->
+        <div class="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary">payments</span>
+                Session History & Earnings
+              </h3>
+              <p class="text-sm text-slate-500 font-medium">Track your completed calls and payments.</p>
+            </div>
+            <button class="p-2 text-slate-400 hover:text-primary transition-colors"><span class="material-symbols-outlined">filter_list</span></button>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead>
+                <tr class="text-[10px] text-slate-400 border-b border-slate-50 uppercase tracking-widest font-black">
+                  <th class="pb-4">Mentee</th>
+                  <th class="pb-4">Date & Time</th>
+                  <th class="pb-4">Duration</th>
+                  <th class="pb-4">Status</th>
+                  <th class="pb-4 text-right">Earnings</th>
+                </tr>
+              </thead>
+              <tbody class="text-sm">
+                <tr class="earning-row">
+                  <td class="py-4 font-bold text-slate-700">Sarah Johnson</td>
+                  <td class="py-4 text-slate-500 font-medium">Oct 24, 09:00 AM</td>
+                  <td class="py-4 text-slate-500 font-medium">45 mins</td>
+                  <td class="py-4"><span class="badge-pill success">Completed</span></td>
+                  <td class="py-4 text-right font-black text-slate-900">$30.00</td>
+                </tr>
+                <tr class="earning-row">
+                  <td class="py-4 font-bold text-slate-700">Liam Smith</td>
+                  <td class="py-4 text-slate-500 font-medium">Oct 20, 11:00 AM</td>
+                  <td class="py-4 text-slate-500 font-medium">0 mins</td>
+                  <td class="py-4"><span class="badge-pill error">Missed</span></td>
+                  <td class="py-4 text-right font-black text-slate-400">$0.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-1 space-y-6">
+        <div class="rounded-3xl bg-gradient-to-br from-white to-slate-50 border border-slate-100 p-6 shadow-sm group">
+          <h3 class="text-lg font-black text-slate-800 mb-5 flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary">recommend</span>
+            Suggest Activity
+          </h3>
+          <div class="space-y-4">
+            <div><label class="label-tiny">Select Mentee</label><select class="input-modern"><option>Michael Brown</option></select></div>
+            <div><label class="label-tiny">Activity Idea</label><select class="input-modern"><option>Take a 10 min walk</option></select></div>
+            <button class="btn-primary-large"><span class="material-symbols-outlined text-[20px]">send</span> Send Suggestion</button>
+          </div>
+        </div>
+
+        <div class="rounded-3xl bg-white border border-slate-100 p-6 shadow-sm">
+          <h3 class="text-lg font-black text-slate-800 mb-5 flex items-center gap-2"><span class="material-symbols-outlined text-primary">notifications_active</span> Mentee Updates</h3>
+          <div class="space-y-4">
+            <div class="update-box">
+              <span class="material-symbols-outlined text-slate-400 text-sm">sentiment_satisfied</span>
+              <div>
+                <p class="text-sm font-black text-slate-800 mb-1">Goal Achieved</p>
+                <p class="text-[11px] text-slate-500 font-medium">Sarah completed her "Morning Walk" streak!</p>
+                <button class="btn-text">Send Congratulation</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

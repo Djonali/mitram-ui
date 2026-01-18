@@ -26,7 +26,8 @@ export interface WaitlistResponse {
   providedIn: 'root'
 })
 export class WaitlistService {
-  private apiUrl = `${environment.apiUrl}/waitlist`;
+  ///api/home/waitlist
+  private apiUrl = `${environment.apiUrl}/api/home/waitlist`;
 
   constructor(private http: HttpClient) {}
 
@@ -35,6 +36,6 @@ export class WaitlistService {
       'Content-Type': 'application/json'
     });
 
-    return this.http.post<WaitlistResponse>(this.apiUrl, formData, { headers });
+    return this.http.post<any>(this.apiUrl, formData);
   }
 }
